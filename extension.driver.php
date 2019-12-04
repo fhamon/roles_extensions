@@ -83,13 +83,15 @@ class extension_roles_extensions extends Extension {
     }
 
     public function onHasAccess($context) {
-        $pageURL = !empty($context['page']) && $context['delegate'] !== 'CanAccessPage' ? $context['callback']['pageroot'] : $context['page_url'];
+        $pageURL = !empty($context['context']['page']) && $context['context']['delegate'] !== 'CanAccessPage' ? $context['context']['callback']['pageroot'] : $context['context']['page_url'];
         preg_match_all('/extension\/([A-z0-9]*)\/([A-z0-9]*)/', $pageURL, $matches, PREG_SET_ORDER, 0);
         $extensionHandle = $matches[0][1];
         $extensionContent = empty($matches[0][2]) ? 'index' : $matches[0][2];
 
         if (!empty($extensionHandle) && !empty($extensionContent)) {
-            foreach ($context['roles'] as $key => $role) {
+            $context['allowed'] = false;
+
+            foreach ($context['roles'] as $role) {
                 if (in_array('*', $role['extensions'], true)) {
                     $context['allowed'] =  true;
                     break;
