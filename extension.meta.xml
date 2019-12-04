@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension id="roles_extensions" status="experimental" xmlns="http://getsymphony.com/schemas/extension/1.0">
+	<name>Roles: Extensions</name>
+	<description>
+		Add extensions policies in the role extension
+	</description>
+	<types>
+		<type>Admin</type>
+	</types>
+	<authors>
+		<author>
+			<name github="fhamon" symphony="fhamon" twitter="FrederickHamon">Frederick Hamon</name>
+		</author>
+		<author>
+			<name github="DeuxHuitHuit" symphony="nitriques" twitter="DeuxHuitHuit">Deux Huit Huit</name>
+			<website>https://deuxhuithuit.com/</website>
+		</author>
+	</authors>
+	<releases>
+		<release version="0.1.0" date="2019-06-12" min="4.0.0" max="4.x.x">
+			- Initial release
+		</release>
+	</releases>
+</extension>
